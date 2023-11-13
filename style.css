@@ -1,0 +1,22 @@
+body {
+  background-color: antiquewhite;
+  padding: 15%;
+}
+#avatar_george,
+#avatar_janet,
+#avatar_emma,
+#avatar_charles,
+#avatar_tracey,
+#avatar_eve {
+  border-radius: 40%;
+}
+#id_george,
+#id_janet,
+#id_emma,
+#id_charles,
+#id_tracey,
+#id_eve {
+  background-color: blue;
+  height: 7%;
+  width: 30%;
+}

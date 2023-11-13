@@ -64,18 +64,113 @@ console.log(avatarGeorge, avatarJanet, avatarEmma, avatarEve, avatarCharles, ava
 //Je récupère, stocke, affiche, les BALISES IMG SRC concatenée avec la const qui contient l'url
 
 
-const contentElement = document.querySelector("content");
-contentElement.innerHTML =`
+
+const bodyElement = document.querySelector("body");
+
+bodyElement.innerHTML =`
 <div><h1>Nouvel Exercice JS by Jérémy Bee 😁🐝</h1></div>
 
-<div id="avatar_georges"> <img src ="${urlAvatarGeorge}"/> </div>
-<div id="avatar_janet"> <img src ="${urlAvatarJanet}"/> </div>
-<div id="avatar_emma"> <img src ="${urlAvatarEmma}"/> </div>
-<div id="avatar_eve"> <img src ="${urlAvatarEve}"/> </div>
-<div id="avatar_charles"> <img src ="${urlAvatarCharles}"/> </div>
-<div id="avatar_tracey"> <img src ="${urlAvatarTracey}"/> </div>
+<div id="george"> 
+<img src ="${urlAvatarGeorge}" id="avatar_george"/> 
+<div id="id_george"></div>
+<div id="prenom_nom_george"></div>
+<div id="email_george"></div>
+</div>
+
+<div id="janet"> 
+<img src ="${urlAvatarJanet}" id="avatar_janet"/> 
+<div id="id_janet"> </div>
+<div id="id_janet"></div>
+<div id="prenom_nom_janet"></div>
+<div id="email_janet"></div>
+</div>
+
+<div id="emma"> 
+<img src ="${urlAvatarEmma}" id="avatar_emma"/> 
+<div id="id_emma"> </div>
+<div id="id_emma"></div>
+<div id="prenom_nom_emma"></div>
+<div id="email_emma"></div>
+</div>
+
+<div id="eve">
+ <img src ="${urlAvatarEve}" id="avatar_eve"/> 
+ <div id="id_eve"> </div>
+ <div id="id_eve"></div>
+<div id="prenom_nom_eve"></div>
+<div id="email_eve"></div>
+ </div>
+
+<div id="charles">
+ <img src ="${urlAvatarCharles}" id="avatar_charles"/> 
+ <div id="id_charles"> </div>
+ <div id="id_charles"></div>
+<div id="prenom_nom_charles"></div>
+<div id="email_charles"></div>
+ </div>
+
+<div id="tracey"> 
+<img src ="${urlAvatarTracey}" id="avatar_tracey"/> 
+<div id="id_tracey"> </div>
+<div id="id_tracey"></div>
+<div id="prenom_nom_tracey"></div>
+<div id="email_tracey"></div>
+</div>
+
 `;
 
+const georgeId = document.getElementById("id_george");
+const georgePrenomNom = document.getElementById("prenom_nom_george");
+const georgeEmail = document.getElementById("email_george");
+georgeId.innerText = `id : ${idGeorge}`;
+georgePrenomNom.innerText = `Identité : ${prenomGeorge} ${nomGeorge}`;
+georgeEmail.innerText = `Email : ${emailGeorge}`;
+
+const janetId = document.getElementById("id_janet");
+const janetPrenomNom = document.getElementById("prenom_nom_janet");
+const janetEmail = document.getElementById("email_janet");
+janetId.innerText = `id : ${idJanet}`;
+janetPrenomNom.innerText = `Identité : ${prenomJanet} ${nomJanet}`;
+janetEmail.innerText = `Email : ${emailJanet}`;
+
+const emmaId = document.getElementById("id_emma");
+const emmaPrenomNom = document.getElementById("prenom_nom_emma");
+const emmaEmail = document.getElementById("email_emma");
+emmaId.innerText = `id : ${idEmma}`;
+emmaPrenomNom.innerText = `Identité : ${prenomEmma} ${nomEmma}`;
+emmaEmail.innerText = `Email : ${emailEmma}`;
+
+const eveId = document.getElementById("id_eve");
+const evePrenomNom = document.getElementById("prenom_nom_eve");
+const eveEmail = document.getElementById("email_eve");
+eveId.innerText = `id : ${idEve}`;
+evePrenomNom.innerText = `Identité : ${prenomEve} ${nomEve}`;
+eveEmail.innerText = `Email : ${emailEve}`;
+
+const charlesId = document.getElementById("id_charles");
+const charlesPrenomNom = document.getElementById("prenom_nom_charles");
+const charlesEmail = document.getElementById("email_charles");
+charlesId.innerText = `id : ${idCharles}`;
+charlesPrenomNom.innerText = `Identité : ${prenomCharles} ${nomCharles}`;
+charlesEmail.innerText = `Email : ${emailCharles}`;
+
+const traceyId = document.getElementById("id_tracey");
+const traceyPrenomNom = document.getElementById("prenom_nom_tracey");
+const traceyEmail = document.getElementById("email_tracey");
+traceyId.innerText = `id : ${idTracey}`;
+traceyPrenomNom.innerText = `Identité : ${prenomTracey} ${nomTracey}`;
+traceyEmail.innerText = `Email : ${emailTracey}`;
+
+
 });
+
+
+
+
+
+
+
+
+
 
 
