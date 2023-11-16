@@ -1,176 +1,40 @@
-const urlApi = `https://reqres.in/api/users?page=1`;
+const urlApi = `https://reqres.in/api/users?page=1@`;
+const urlApiP2 = `https://reqres.in/api/users?page=2`;
 
+const body1Element = document.getElementById("body1"); 
 
+function nextOne (event) {
 
-fetch(urlApi)
-.then((response) => {
-    return response.json();
-})
-.then ((jsonMirabelle) => {
-    console.log(jsonMirabelle)
+    fetch(urlApi).then((response) => {
+        return response.json();
+    })
+    .then((jsonFramboise) => {
+        console.log(jsonFramboise); // j'affiche le tableau de l'api
+        console.log(jsonFramboise.data) //j'affiche les Data du tableau de l'api
 
-    const idGeorge = jsonMirabelle.data[0].id;
-    const idJanet = jsonMirabelle.data[1].id;
-    const idEmma = jsonMirabelle.data[2].id;
-    const idEve = jsonMirabelle.data[3].id;
-    const idCharles = jsonMirabelle.data[4].id;
-    const idTracey = jsonMirabelle.data[5].id;
-console.log(idGeorge, idJanet, idEmma, idEve, idCharles, idTracey);
-// je recupère, et stocke, et affiche l'ID
+    const users = jsonFramboise.data; // je "stocke" dans USERS les datas du tableau pour les utiliser dans la boucle for avec le .length.
 
-    const prenomGeorge = jsonMirabelle.data[0].first_name;
-    const prenomJanet = jsonMirabelle.data[1].first_name;
-    const prenomEmma = jsonMirabelle.data[2].first_name;
-    const prenomEve = jsonMirabelle.data[3].first_name;
-    const prenomCharles = jsonMirabelle.data[4].first_name;
-    const prenomTracey = jsonMirabelle.data[5].first_name;
-console.log(prenomGeorge, prenomJanet, prenomEmma, prenomEve, prenomCharles, prenomTracey);
-// je recupère, stocke, et affiche le PRENOM
+    for (let zindex = 0; zindex < users.length; zindex++){
 
-    const nomGeorge = jsonMirabelle.data[0].last_name;
-    const nomJanet = jsonMirabelle.data[1].last_name;
-    const nomEmma = jsonMirabelle.data[2].last_name;
-    const nomEve = jsonMirabelle.data[3].last_name;
-    const nomCharles = jsonMirabelle.data[4].last_name;
-    const nomTracey = jsonMirabelle.data[5].last_name;
-console.log(nomGeorge, nomJanet, nomEmma, nomEve, nomCharles, nomTracey);
-// je recupère, stocke, et affiche le NOM
+    body1Element.innerHTML += `
 
-    const emailGeorge = jsonMirabelle.data[0].email;
-    const emailJanet = jsonMirabelle.data[1].email;
-    const emailEmma = jsonMirabelle.data[2].email;
-    const emailEve = jsonMirabelle.data[3].email;
-    const emailCharles = jsonMirabelle.data[4].email;
-    const emailTracey = jsonMirabelle.data[5].email;
-console.log(emailGeorge, emailJanet, emailEmma, emailEve, emailCharles, emailTracey);
-// je recupère, stocke, et affiche l'EMAIL
+    <div class= "user_cards">
+   <div id= "id">
+        <p>${jsonFramboise.data[zindex].id}</p>
+   </div>
+   <div id= "avatar"><img src = "${jsonFramboise.data[zindex].avatar}" alt ="Picture of ${jsonFramboise.data[zindex].first_name} "/></div>
+   <div id= "prenom_nom">
+        <p>${jsonFramboise.data[zindex].first_name} ${jsonFramboise.data[zindex].last_name}</p>
+   </div>
+   <div id= "email">
+        <p>${jsonFramboise.data[zindex].email}</p>
+   </div>
+   </div>
+    `;
+    
+    
+    }  // ===> FIN de FOR LOOP
 
-    const urlAvatarGeorge = jsonMirabelle.data[0].avatar;
-    const urlAvatarJanet = jsonMirabelle.data[1].avatar;
-    const urlAvatarEmma = jsonMirabelle.data[2].avatar;
-    const urlAvatarEve = jsonMirabelle.data[3].avatar;
-    const urlAvatarCharles = jsonMirabelle.data[4].avatar;
-    const urlAvatarTracey = jsonMirabelle.data[5].avatar;
-console.log(urlAvatarGeorge, urlAvatarJanet, urlAvatarEmma, urlAvatarEve, urlAvatarCharles, urlAvatarTracey);
-// je recupère, stocke, et affiche l'URL de la photo.
-
-    const avatarGeorge = `<img src ="${urlAvatarGeorge}"/>`;
-    const avatarJanet = `<img src ="${urlAvatarJanet}"/>`;
-    const avatarEmma = `<img src ="${urlAvatarEmma}"/>`;
-    const avatarEve = `<img src ="${urlAvatarEve}"/>`;
-    const avatarCharles = `<img src ="${urlAvatarCharles}"/>`;
-    const avatarTracey = `<img src ="${urlAvatarTracey}"/>`;
-console.log(avatarGeorge, avatarJanet, avatarEmma, avatarEve, avatarCharles, avatarTracey);
-//Je récupère, stocke, affiche, les BALISES IMG SRC concatenée avec la const qui contient l'url
-
-
-
-const bodyElement = document.querySelector("body");
-
-bodyElement.innerHTML =`
-<div><h1>Nouvel Exercice JS by Jérémy Bee 😁🐝</h1></div>
-
-<div id="george"> 
-<img src ="${urlAvatarGeorge}" id="avatar_george"/> 
-<div id="id_george"></div>
-<div id="prenom_nom_george"></div>
-<div id="email_george"></div>
-</div>
-
-<div id="janet"> 
-<img src ="${urlAvatarJanet}" id="avatar_janet"/> 
-<div id="id_janet"> </div>
-<div id="id_janet"></div>
-<div id="prenom_nom_janet"></div>
-<div id="email_janet"></div>
-</div>
-
-<div id="emma"> 
-<img src ="${urlAvatarEmma}" id="avatar_emma"/> 
-<div id="id_emma"> </div>
-<div id="id_emma"></div>
-<div id="prenom_nom_emma"></div>
-<div id="email_emma"></div>
-</div>
-
-<div id="eve">
- <img src ="${urlAvatarEve}" id="avatar_eve"/> 
- <div id="id_eve"> </div>
- <div id="id_eve"></div>
-<div id="prenom_nom_eve"></div>
-<div id="email_eve"></div>
- </div>
-
-<div id="charles">
- <img src ="${urlAvatarCharles}" id="avatar_charles"/> 
- <div id="id_charles"> </div>
- <div id="id_charles"></div>
-<div id="prenom_nom_charles"></div>
-<div id="email_charles"></div>
- </div>
-
-<div id="tracey"> 
-<img src ="${urlAvatarTracey}" id="avatar_tracey"/> 
-<div id="id_tracey"> </div>
-<div id="id_tracey"></div>
-<div id="prenom_nom_tracey"></div>
-<div id="email_tracey"></div>
-</div>
-
-`;
-
-const georgeId = document.getElementById("id_george");
-const georgePrenomNom = document.getElementById("prenom_nom_george");
-const georgeEmail = document.getElementById("email_george");
-georgeId.innerText = `id : ${idGeorge}`;
-georgePrenomNom.innerText = `Identité : ${prenomGeorge} ${nomGeorge}`;
-georgeEmail.innerText = `Email : ${emailGeorge}`;
-
-const janetId = document.getElementById("id_janet");
-const janetPrenomNom = document.getElementById("prenom_nom_janet");
-const janetEmail = document.getElementById("email_janet");
-janetId.innerText = `id : ${idJanet}`;
-janetPrenomNom.innerText = `Identité : ${prenomJanet} ${nomJanet}`;
-janetEmail.innerText = `Email : ${emailJanet}`;
-
-const emmaId = document.getElementById("id_emma");
-const emmaPrenomNom = document.getElementById("prenom_nom_emma");
-const emmaEmail = document.getElementById("email_emma");
-emmaId.innerText = `id : ${idEmma}`;
-emmaPrenomNom.innerText = `Identité : ${prenomEmma} ${nomEmma}`;
-emmaEmail.innerText = `Email : ${emailEmma}`;
-
-const eveId = document.getElementById("id_eve");
-const evePrenomNom = document.getElementById("prenom_nom_eve");
-const eveEmail = document.getElementById("email_eve");
-eveId.innerText = `id : ${idEve}`;
-evePrenomNom.innerText = `Identité : ${prenomEve} ${nomEve}`;
-eveEmail.innerText = `Email : ${emailEve}`;
-
-const charlesId = document.getElementById("id_charles");
-const charlesPrenomNom = document.getElementById("prenom_nom_charles");
-const charlesEmail = document.getElementById("email_charles");
-charlesId.innerText = `id : ${idCharles}`;
-charlesPrenomNom.innerText = `Identité : ${prenomCharles} ${nomCharles}`;
-charlesEmail.innerText = `Email : ${emailCharles}`;
-
-const traceyId = document.getElementById("id_tracey");
-const traceyPrenomNom = document.getElementById("prenom_nom_tracey");
-const traceyEmail = document.getElementById("email_tracey");
-traceyId.innerText = `id : ${idTracey}`;
-traceyPrenomNom.innerText = `Identité : ${prenomTracey} ${nomTracey}`;
-traceyEmail.innerText = `Email : ${emailTracey}`;
-
-
-});
-
-
-
-
-
-
-
-
-
-
-
+});  // ===> FIN de FETCH
+}
+nextOne(); // ==> FIN de FONCTION 

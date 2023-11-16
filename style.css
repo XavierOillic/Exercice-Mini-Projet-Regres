@@ -1,22 +1,17 @@
 body {
-  background-color: antiquewhite;
-  padding: 15%;
+  background-color: rgb(189, 188, 188);
+  height: 100%;
+  width: 100%;
+  padding: 5%;
 }
-#avatar_george,
-#avatar_janet,
-#avatar_emma,
-#avatar_charles,
-#avatar_tracey,
-#avatar_eve {
-  border-radius: 40%;
-}
-#id_george,
-#id_janet,
-#id_emma,
-#id_charles,
-#id_tracey,
-#id_eve {
-  background-color: blue;
-  height: 7%;
-  width: 30%;
+
+.user_cards {
+  display: grid; /* me permet de CENTRER tous mes elements dans la Div*/
+  justify-items: center;
+  background-color: brown;
+  height: 100%;
+  width: 100%;
+  border-radius: 15%;
+  padding: 10%;
+  margin: 1%;
 }
